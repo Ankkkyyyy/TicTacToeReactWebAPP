@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 
-## Check out the project by clicking on the below link 
+## `Check out the Project by clicking on the below link `
 
 <a href=https://whac-a-mole.surge.sh//>Click here to visit</a>
 
