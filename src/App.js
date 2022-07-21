@@ -1,23 +1,27 @@
-import {Box,Heading} from "@chakra-ui/react";
+import {Box,Heading, position,Button, color} from "@chakra-ui/react";
 import './App.css';
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import Board from './components/board';
 import calculateWinner from "./helpers";
+import StatusMessage from "./components/StatusMessage";
+import HeadingTictacetoe from "./components/Heading";
 function App() {
 
-  
+
+
 const [board,setboard ]= useState(Array(9).fill(null));
 const [isXNext,setIsNext] = useState(false);
 // by default isXNext is set to False
+
+
 
 const winner = calculateWinner(board);
 
 // console.log(winner)
 
-const message = winner ? `Winner is ${winner}` : `Next player is ${isXNext? 'X' : 'O'}`;
+// const message = winner ? `Winner is ${winner}` : `Next player is ${isXNext? 'X' : 'O'}`;
 
 // console.log(board);
-
 
 
 
@@ -57,14 +61,18 @@ return prev.map((square,pos)=>{
 };
 
 
+
+
+
+
   return (
-    <Box >
-      <Heading textAlign="center" pt="12px" mb="50px" bgGradient='linear(to-l, #7928CA, #FF0080)'
-  bgClip='text'
-  fontSize='5xl'
-  fontWeight='extrabold'  >TIC TAC TOE </Heading>
-   <Heading align="center" pb="40px" fontSize="2xl" >{message}</Heading>
+    <Box  bg="purple.600" bgSize="cover" backgroundRepeat="no-repeat" minHeight="100%" >
+    <Box  >
+  <HeadingTictacetoe />
+  
+   <StatusMessage winner={winner} isXNext={isXNext} />
       <Board board={board} handleSquareClick={handleSquareClick} />
+    </Box>
     </Box>
   );
 }
